@@ -1,5 +1,5 @@
 import Footer from "@/common/layouts/Footer";
-import Navbar from "@/common/layouts/Navbar";
+import Header from "@/common/layouts/header";
 import "./globals.css";
 import { ReactQueryProvider } from "@/api/client/reactQuery";
 import { CustomToaster } from "@/ui/CustomToaster";
@@ -16,7 +16,7 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
     <html lang="en">
       <body className="relative ">
         <ReactQueryProvider>
-          <Navbar />
+          <Header />
           <CustomToaster />
           <main>{children}</main>
           <Footer />

@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import { useFadeIn } from "@/hooks/ui/useFadeIn";
 import { useScaleIn } from "@/hooks/ui/useScaleIn";
 
-const Header = () => {
+const CallToAction = () => {
   const fadeIn = useFadeIn();
   const scaleIn = useScaleIn();
 
@@ -51,4 +51,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default CallToAction;

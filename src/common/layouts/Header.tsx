@@ -10,7 +10,7 @@ import { useLogout } from "@/api/services/auth/useLogout";
 import { useAuth } from "@/api/services/auth/useIsAuth";
 import Image from "next/image";
 
-const Navbar = () => {
+const Header = () => {
   const { data: user } = useAuth();
   const { mutate: logout } = useLogout();
   const [isOpen, setIsOpen] = useState(false);
@@ -192,4 +192,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default Header;
