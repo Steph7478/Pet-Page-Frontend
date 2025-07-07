@@ -1,6 +1,6 @@
-import {getAdoptionByClientId} from "@/api/queries/adoption/adoption";
-import {getPetById} from "@/api/queries/pets/pets";
-import {useQuery} from "@tanstack/react-query";
+import { getAdoptionByClientId } from "@/api/queries/adoption/adoption";
+import { getPetById } from "@/api/queries/pets/pets";
+import { useQuery } from "@tanstack/react-query";
 
 export const usePetsByClient = (clientId: string) => {
   return useQuery({

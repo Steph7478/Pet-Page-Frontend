@@ -1,21 +1,21 @@
 import React from "react";
-import {useFormulario} from "@/api/services/formulario/useFormulario";
-import {FormSchema, formulario} from "@/schemas/formulario";
-import {toast} from "@/ui/CustomToaster";
-import {IoClose} from "react-icons/io5";
-import {FormularioWrapper} from "@/hooks/components/useModal";
+import { useFormulario } from "@/api/services/formulario/useFormulario";
+import { FormSchema, formulario } from "@/schemas/formulario";
+import { toast } from "@/ui/CustomToaster";
+import { IoClose } from "react-icons/io5";
+import { FormularioWrapper } from "@/hooks/components/useModal";
 import FormField from "../../common/components/FormField";
 import BooleanField from "./BooleanField";
 import Checkbox from "@/ui/checkbox";
-import {useParams} from "next/navigation";
-import {useAuth} from "@/api/services/auth/useIsAuth";
-import {useForm} from "react-hook-form";
-import {zodResolver} from "@hookform/resolvers/zod";
+import { useParams } from "next/navigation";
+import { useAuth } from "@/api/services/auth/useIsAuth";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 
-const Modal = ({setIsOpen}: {setIsOpen: (open: boolean) => void}) => {
-  const {mutate, isPending, isSuccess, isError} = useFormulario();
-  const {id: petId} = useParams<{id: string}>();
-  const {data: authData} = useAuth();
+const Modal = ({ setIsOpen }: { setIsOpen: (open: boolean) => void }) => {
+  const { mutate, isPending, isSuccess, isError } = useFormulario();
+  const { id: petId } = useParams<{ id: string }>();
+  const { data: authData } = useAuth();
   const clientId = authData?.id;
 
   const {
@@ -23,7 +23,7 @@ const Modal = ({setIsOpen}: {setIsOpen: (open: boolean) => void}) => {
     handleSubmit,
     watch,
     setValue,
-    formState: {errors},
+    formState: { errors },
   } = useForm<FormSchema>({
     resolver: zodResolver(formulario),
     defaultValues: {
@@ -47,12 +47,12 @@ const Modal = ({setIsOpen}: {setIsOpen: (open: boolean) => void}) => {
     field: "espacoExterno" | "ambienteSeguro" | "teveAnimaisAntes";
     title: string;
   }[] = [
-    {field: "espacoExterno", title: "Sua casa tem espaço externo?"},
+    { field: "espacoExterno", title: "Sua casa tem espaço externo?" },
     {
       field: "ambienteSeguro",
       title: "O ambiente é fechado/seguro para o animal?",
     },
-    {field: "teveAnimaisAntes", title: "Você já teve animais antes?"},
+    { field: "teveAnimaisAntes", title: "Você já teve animais antes?" },
   ];
 
   return (
@@ -137,7 +137,7 @@ const Modal = ({setIsOpen}: {setIsOpen: (open: boolean) => void}) => {
                   </div>
                 </div>
 
-                {booleanFields.map(({field, title}) => (
+                {booleanFields.map(({ field, title }) => (
                   <BooleanField
                     key={field}
                     label={title}

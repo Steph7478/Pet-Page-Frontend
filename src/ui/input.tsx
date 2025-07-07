@@ -1,6 +1,6 @@
-import {cn} from "@/libs/cn";
-import {cva, VariantProps} from "class-variance-authority";
-import {motion} from "framer-motion";
+import { cn } from "@/libs/cn";
+import { cva, VariantProps } from "class-variance-authority";
+import { motion } from "framer-motion";
 import React from "react";
 
 const inputVariants = cva(
@@ -16,23 +16,23 @@ const inputVariants = cva(
         auth: "text-black focus:bg-[var(--light-yellow)]/75 bg-[var(--light-yellow)]/50 rounded px-3 py-2",
       },
     },
-  }
+  },
 );
 
 type InputProps = React.InputHTMLAttributes<HTMLInputElement> &
   VariantProps<typeof inputVariants>;
 
 const Input = React.forwardRef<HTMLInputElement, InputProps>(
-  ({className, type, intent, ...props}, ref) => {
+  ({ className, type, intent, ...props }, ref) => {
     return (
       <motion.input
         ref={ref}
         type={type}
-        className={cn(inputVariants({intent}), className)}
+        className={cn(inputVariants({ intent }), className)}
         {...(props as React.ComponentProps<typeof motion.input>)}
       />
     );
-  }
+  },
 );
 
 Input.displayName = "Input";

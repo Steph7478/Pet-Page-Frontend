@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
-import {FaGithubAlt} from "react-icons/fa";
-import {FaLinkedin} from "react-icons/fa";
+import { FaGithubAlt } from "react-icons/fa";
+import { FaLinkedin } from "react-icons/fa";
 
 const Footer = () => {
   return (

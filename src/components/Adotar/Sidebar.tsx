@@ -2,9 +2,9 @@
 
 import Checkbox from "@/ui/checkbox";
 import React from "react";
-import {BsFillFilterCircleFill} from "react-icons/bs";
-import {IoIosCloseCircleOutline} from "react-icons/io";
-import {Filters} from "@/types/slides";
+import { BsFillFilterCircleFill } from "react-icons/bs";
+import { IoIosCloseCircleOutline } from "react-icons/io";
+import { Filters } from "@/types/slides";
 
 export interface SidebarProps {
   isOpen: boolean;

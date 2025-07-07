@@ -1,6 +1,6 @@
-import {Formulário} from "@/api/dtos/formulario.dto";
-import {api} from "../../client/axios";
-import {API_PATHS} from "@/constants/paths";
+import { Formulário } from "@/api/dtos/formulario.dto";
+import { api } from "../../client/axios";
+import { API_PATHS } from "@/constants/paths";
 
 export const createFormulario = async (data: Formulário) => {
   try {

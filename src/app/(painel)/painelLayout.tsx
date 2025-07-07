@@ -1,10 +1,10 @@
 "use client";
 
-import React, {useState, useEffect, useMemo, useCallback} from "react";
-import {motion, AnimatePresence} from "framer-motion";
-import {FaHeart, FaMapMarkerAlt, FaCalendarAlt, FaPlus} from "react-icons/fa";
-import {toast} from "@/ui/CustomToaster";
-import {PetInfos} from "@/api/dtos/pet.dto";
+import React, { useState, useEffect, useMemo, useCallback } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { FaHeart, FaMapMarkerAlt, FaCalendarAlt, FaPlus } from "react-icons/fa";
+import { toast } from "@/ui/CustomToaster";
+import { PetInfos } from "@/api/dtos/pet.dto";
 import Button from "@/ui/button";
 
 import ProtectedRoute from "@/common/routes/ProtectedRoute";
@@ -16,30 +16,30 @@ import {
   dogItemVariants,
   getDogItemTransition,
 } from "@/ui/motionVariants";
-import {usePetsByClient} from "@/api/services/user/useAdotante";
+import { usePetsByClient } from "@/api/services/user/useAdotante";
 import {
   usePetsByAdvertiser,
   useAllowAdoption,
   useDenyAdoption,
 } from "@/api/services/user/useAnunciante";
-import {FormularioItem} from "@/types/formulario";
+import { FormularioItem } from "@/types/formulario";
 
 interface AdoptionPanelProps {
   type: "adopter" | "advertiser";
   userId: string;
 }
 
-const STATUS_ORDER = {pending: 0, adopted: 1, available: 2};
+const STATUS_ORDER = { pending: 0, adopted: 1, available: 2 };
 
-const AdoptionPanel: React.FC<AdoptionPanelProps> = ({type, userId}) => {
-  const {data: dataDogs} = usePetsByAdvertiser(userId);
-  const {data: formulario} = usePetsByClient(userId);
+const AdoptionPanel: React.FC<AdoptionPanelProps> = ({ type, userId }) => {
+  const { data: dataDogs } = usePetsByAdvertiser(userId);
+  const { data: formulario } = usePetsByClient(userId);
 
   const [dogs, setDogs] = useState<PetInfos[]>([]);
   const [selectedDog, setSelectedDog] = useState<PetInfos | null>(null);
 
-  const {mutate: allowAdoption, isPending: approving} = useAllowAdoption();
-  const {mutate: denyAdoption, isPending: denying} = useDenyAdoption();
+  const { mutate: allowAdoption, isPending: approving } = useAllowAdoption();
+  const { mutate: denyAdoption, isPending: denying } = useDenyAdoption();
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
@@ -52,7 +52,7 @@ const AdoptionPanel: React.FC<AdoptionPanelProps> = ({type, userId}) => {
     const sorted = [...(dataDogs ?? [])].sort(
       (a, b) =>
         STATUS_ORDER[a.status as keyof typeof STATUS_ORDER] -
-        STATUS_ORDER[b.status as keyof typeof STATUS_ORDER]
+        STATUS_ORDER[b.status as keyof typeof STATUS_ORDER],
     );
 
     if (type === "adopter") {
@@ -82,25 +82,25 @@ const AdoptionPanel: React.FC<AdoptionPanelProps> = ({type, userId}) => {
       setSelectedDog((prev) =>
         prev && sortedDataDogs.some((d) => d.id === prev.id)
           ? prev
-          : sortedDataDogs[0]
+          : sortedDataDogs[0],
       );
     }
   }, [sortedDataDogs]);
 
   const getDogNameById = useCallback(
     (id: string) => dogs.find((dog) => dog.id === id)?.nome || "cachorro",
-    [dogs]
+    [dogs],
   );
 
   const updateDogStatus = useCallback(
     (dogId: string, status: PetInfos["status"], adoptionDate = "") => {
       setDogs((prev) =>
         prev.map((dog) =>
-          dog.id === dogId ? {...dog, status, adoptionDate} : dog
-        )
+          dog.id === dogId ? { ...dog, status, adoptionDate } : dog,
+        ),
       );
     },
-    []
+    [],
   );
 
   const handleCancelAdoption = useCallback(
@@ -113,24 +113,24 @@ const AdoptionPanel: React.FC<AdoptionPanelProps> = ({type, userId}) => {
         onError: () => toast.error("Falha ao cancelar a adoção"),
       });
     },
-    [denyAdoption, selectedDog, getDogNameById]
+    [denyAdoption, selectedDog, getDogNameById],
   );
 
   const handleApproveAdoption = useCallback(
     (dogId: string, clientId: string) => {
       const approvedAt = new Date().toISOString();
       allowAdoption(
-        {id: dogId, clientId, dataAdocao: approvedAt},
+        { id: dogId, clientId, dataAdocao: approvedAt },
         {
           onSuccess: () => {
             updateDogStatus(dogId, "adopted", new Date().toISOString());
             toast.success(`Adoção de ${getDogNameById(dogId)} foi aprovada!`);
           },
           onError: () => toast.error("Falha ao aprovar a adoção."),
-        }
+        },
       );
     },
-    [allowAdoption, updateDogStatus, getDogNameById]
+    [allowAdoption, updateDogStatus, getDogNameById],
   );
 
   const handleRejectAdoption = useCallback(
@@ -140,18 +140,18 @@ const AdoptionPanel: React.FC<AdoptionPanelProps> = ({type, userId}) => {
           updateDogStatus(dogId, "available");
           if (selectedDog?.id === dogId) setSelectedDog(null);
           toast.error(
-            `Solicitação de adoção de ${getDogNameById(dogId)} foi rejeitada.`
+            `Solicitação de adoção de ${getDogNameById(dogId)} foi rejeitada.`,
           );
         },
         onError: () => toast.error("Falha ao rejeitar a adoção."),
       });
     },
-    [denyAdoption, selectedDog, updateDogStatus, getDogNameById]
+    [denyAdoption, selectedDog, updateDogStatus, getDogNameById],
   );
 
   const getTitle = useMemo(() => {
     const pendingCount = sortedDataDogs.filter(
-      (d) => d.status === "pending"
+      (d) => d.status === "pending",
     ).length;
     return type === "adopter"
       ? `Meus Animais Adotados (${sortedDataDogs.length})`
@@ -399,7 +399,7 @@ const AdoptionPanel: React.FC<AdoptionPanelProps> = ({type, userId}) => {
                             onClick={() =>
                               handleApproveAdoption(
                                 selectedDog.id,
-                                formularioSelecionado!.clientId
+                                formularioSelecionado!.clientId,
                               )
                             }
                           >

@@ -1,25 +1,25 @@
 "use client";
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import AuthLayout from "../AuthLayout";
 import Input from "@/ui/input";
-import {useSignup} from "@/api/services/auth/useRegister";
+import { useSignup } from "@/api/services/auth/useRegister";
 import Button from "@/ui/button";
-import {toast} from "@/ui/CustomToaster";
-import {useForm} from "react-hook-form";
+import { toast } from "@/ui/CustomToaster";
+import { useForm } from "react-hook-form";
 
-import {zodResolver} from "@hookform/resolvers/zod";
-import {registerSchema, RegisterSchema} from "@/schemas/auth";
-import {createHandleSubmit} from "@/hooks/forms/handleUseFormSubmit";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { registerSchema, RegisterSchema } from "@/schemas/auth";
+import { createHandleSubmit } from "@/hooks/forms/handleUseFormSubmit";
 
 const SignUp = () => {
-  const {mutate, isPending, isError} = useSignup();
+  const { mutate, isPending, isError } = useSignup();
 
   const {
     register,
     handleSubmit,
     setValue,
     watch,
-    formState: {errors},
+    formState: { errors },
   } = useForm<RegisterSchema>({
     resolver: zodResolver(registerSchema),
     defaultValues: {
@@ -40,7 +40,7 @@ const SignUp = () => {
   }, [errors.password]);
 
   const handleSelectRole = (role: "adotante" | "anunciante") => {
-    setValue("role", role, {shouldValidate: true});
+    setValue("role", role, { shouldValidate: true });
   };
 
   return (

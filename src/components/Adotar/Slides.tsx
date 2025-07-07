@@ -1,17 +1,17 @@
 "use client";
-import {usePetInfo} from "@/api/services/pet/usePetInfo";
+import { usePetInfo } from "@/api/services/pet/usePetInfo";
 import Button from "@/ui/button";
 import Image from "next/image";
 import Link from "next/link";
-import {useCallback, useMemo, useState} from "react";
+import { useCallback, useMemo, useState } from "react";
 import Sidebar from "./Sidebar";
-import {motion} from "framer-motion";
-import {PetInfos} from "@/api/dtos/pet.dto";
-import {Filters} from "@/types/slides";
-import {isValidUrl} from "@/utils/isValidUrl";
+import { motion } from "framer-motion";
+import { PetInfos } from "@/api/dtos/pet.dto";
+import { Filters } from "@/types/slides";
+import { isValidUrl } from "@/utils/isValidUrl";
 
 export default function SimpleSlider() {
-  const {data: pets, isLoading, error} = usePetInfo();
+  const { data: pets, isLoading, error } = usePetInfo();
   const [filters, setFilters] = useState<Filters>({});
   const [isOpen, setIsOpen] = useState(false);
 
@@ -38,7 +38,7 @@ export default function SimpleSlider() {
 
       return sizeMatch && ageMatch;
     },
-    [filters]
+    [filters],
   );
 
   const filteredPets = useMemo(() => {
@@ -49,9 +49,9 @@ export default function SimpleSlider() {
 
   return (
     <motion.section
-      initial={{y: -100, opacity: 0}}
-      animate={{y: 0, opacity: 1}}
-      transition={{duration: 0.5}}
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.5 }}
       className="w-full rounded-lg overflow-hidden bg-[var(--light-brown)]/50 h-full flex justify-center"
       onClick={() => isOpen && setIsOpen(false)}
     >
@@ -78,10 +78,10 @@ export default function SimpleSlider() {
                 !error &&
                 filteredPets?.map((item: PetInfos, index: number) => (
                   <motion.div
-                    initial={{y: 50, opacity: 0}}
-                    animate={{y: 0, opacity: 1}}
-                    exit={{opacity: 0, y: 20}}
-                    transition={{delay: index * 0.05}}
+                    initial={{ y: 50, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    exit={{ opacity: 0, y: 20 }}
+                    transition={{ delay: index * 0.05 }}
                     key={index}
                     className="bg-[var(--light-yellow)] h-[340px] w-[200px] flex flex-col justify-center items-center shadow rounded overflow-hidden m-2"
                   >

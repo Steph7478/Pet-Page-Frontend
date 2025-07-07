@@ -1,11 +1,11 @@
 "use client";
 
-import {motion} from "framer-motion";
+import { motion } from "framer-motion";
 
 export default function LoadingSpinner() {
   return (
     <motion.div
-      animate={{rotate: 360}}
+      animate={{ rotate: 360 }}
       transition={{
         repeat: Infinity,
         duration: 1,

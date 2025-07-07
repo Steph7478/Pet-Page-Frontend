@@ -1,8 +1,8 @@
-import {createFormulario} from "@/api/mutations/adoption/formulario";
-import {updatePet} from "@/api/mutations/pets/pets";
-import {useMutation, useQuery} from "@tanstack/react-query";
-import type {Formulário} from "@/api/dtos/formulario.dto";
-import {getFormulario} from "@/api/queries/adoption/formulario";
+import { createFormulario } from "@/api/mutations/adoption/formulario";
+import { updatePet } from "@/api/mutations/pets/pets";
+import { useMutation, useQuery } from "@tanstack/react-query";
+import type { Formulário } from "@/api/dtos/formulario.dto";
+import { getFormulario } from "@/api/queries/adoption/formulario";
 
 export const useFormularioByPetId = (id: string) => {
   return useQuery<Formulário>({
@@ -18,7 +18,7 @@ export const useFormulario = () => {
       const formularioCriado = await createFormulario(formData);
 
       if (formularioCriado && formData.petId) {
-        await updatePet(formData.petId, {status: "Pendente"});
+        await updatePet(formData.petId, { status: "Pendente" });
       }
 
       return formularioCriado;

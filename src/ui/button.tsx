@@ -1,6 +1,6 @@
-import {cn} from "@/libs/cn";
-import {cva, VariantProps} from "class-variance-authority";
-import {motion} from "framer-motion";
+import { cn } from "@/libs/cn";
+import { cva, VariantProps } from "class-variance-authority";
+import { motion } from "framer-motion";
 import React from "react";
 
 const buttonVariants = cva(
@@ -23,24 +23,24 @@ const buttonVariants = cva(
         plus: "p-2 rounded-md bg-red-500 text-white font-semibold hover:bg-red-600 transition font-semibold text-sm",
       },
     },
-  }
+  },
 );
 
 type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> &
   VariantProps<typeof buttonVariants>;
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({className, intent, children, ...props}, ref) => {
+  ({ className, intent, children, ...props }, ref) => {
     return (
       <motion.button
         ref={ref}
-        className={cn(buttonVariants({intent}), className)}
+        className={cn(buttonVariants({ intent }), className)}
         {...(props as React.ComponentProps<typeof motion.button>)}
       >
         {children}
       </motion.button>
     );
-  }
+  },
 );
 
 Button.displayName = "Button";

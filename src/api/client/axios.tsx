@@ -1,5 +1,5 @@
 import axios from "axios";
-import {getAccessToken} from "@/utils/tokenHandler";
+import { getAccessToken } from "@/utils/tokenHandler";
 
 export const api = axios.create({
   baseURL: process.env.NEXT_PUBLIC_API_URL,
@@ -14,5 +14,5 @@ api.interceptors.request.use(
     }
     return config;
   },
-  (error) => Promise.reject(error)
+  (error) => Promise.reject(error),
 );

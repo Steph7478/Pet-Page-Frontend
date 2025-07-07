@@ -1,6 +1,6 @@
-import {registerPet} from "@/api/mutations/pets/pets";
-import {PetInfos} from "@/api/dtos/pet.dto";
-import {useMutation} from "@tanstack/react-query";
+import { registerPet } from "@/api/mutations/pets/pets";
+import { PetInfos } from "@/api/dtos/pet.dto";
+import { useMutation } from "@tanstack/react-query";
 
 export const useRegisterPet = () => {
   return useMutation({

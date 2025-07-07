@@ -1,9 +1,9 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import {motion} from "framer-motion";
-import {useFadeIn} from "@/hooks/ui/useFadeIn";
-import {useScaleIn} from "@/hooks/ui/useScaleIn";
+import { motion } from "framer-motion";
+import { useFadeIn } from "@/hooks/ui/useFadeIn";
+import { useScaleIn } from "@/hooks/ui/useScaleIn";
 
 const Header = () => {
   const fadeIn = useFadeIn();

@@ -1,8 +1,8 @@
 import Footer from "@/common/layouts/Footer";
 import Navbar from "@/common/layouts/Navbar";
 import "./globals.css";
-import {ReactQueryProvider} from "@/api/client/reactQuery";
-import {CustomToaster} from "@/ui/CustomToaster";
+import { ReactQueryProvider } from "@/api/client/reactQuery";
+import { CustomToaster } from "@/ui/CustomToaster";
 
 export const metadata = {
   title: "PataMansa",
@@ -11,7 +11,7 @@ export const metadata = {
   },
 };
 
-const RootLayout = ({children}: {children: React.ReactNode}) => {
+const RootLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <html lang="en">
       <body className="relative ">

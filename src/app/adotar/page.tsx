@@ -3,8 +3,8 @@ import SimpleSlider from "@/components/Adotar/Slides";
 import ProtectedRoute from "@/common/routes/ProtectedRoute";
 import Image from "next/image";
 import React from "react";
-import {motion} from "framer-motion";
-import {fadeIn} from "@/ui/motionVariants";
+import { motion } from "framer-motion";
+import { fadeIn } from "@/ui/motionVariants";
 
 const Adotar = () => {
   return (

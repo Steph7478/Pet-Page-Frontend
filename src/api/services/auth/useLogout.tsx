@@ -1,5 +1,5 @@
-import {logout} from "@/api/queries/auth/logout";
-import {useMutation, useQueryClient} from "@tanstack/react-query";
+import { logout } from "@/api/queries/auth/logout";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
 import router from "next/router";
 
 export const useLogout = () => {
@@ -8,7 +8,7 @@ export const useLogout = () => {
   return useMutation({
     mutationFn: logout,
     onSuccess: async () => {
-      await queryClient.invalidateQueries({queryKey: ["auth"]});
+      await queryClient.invalidateQueries({ queryKey: ["auth"] });
       router.push("/login");
     },
   });

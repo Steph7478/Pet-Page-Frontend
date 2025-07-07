@@ -1,6 +1,6 @@
 import React from "react";
 import Input from "@/ui/input";
-import {FormFieldPropsAdopt} from "@/types/fields";
+import { FormFieldPropsAdopt } from "@/types/fields";
 
 const FormField = ({
   label,

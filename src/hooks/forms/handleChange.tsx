@@ -1,7 +1,7 @@
-import {ChangeEvent} from "react";
+import { ChangeEvent } from "react";
 
 export const createHandleChange = <T extends object>(
-  setState: React.Dispatch<React.SetStateAction<T>>
+  setState: React.Dispatch<React.SetStateAction<T>>,
 ) => {
   return (field: keyof T) =>
     (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -15,7 +15,7 @@ export const createHandleChange = <T extends object>(
 export const setFieldValue = <T extends object, K extends keyof T>(
   setState: React.Dispatch<React.SetStateAction<T>>,
   field: K,
-  value: T[K]
+  value: T[K],
 ) => {
   setState((prev) => ({
     ...prev,

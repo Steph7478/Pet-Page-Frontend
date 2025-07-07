@@ -1,11 +1,11 @@
-import {FormEvent} from "react";
+import { FormEvent } from "react";
 
 type CanSubmit<T> = (form: T) => boolean | void;
 
 export function createHandleSubmit<T>(
   formData: T,
   onSubmit: (data: T) => void,
-  canSubmit?: CanSubmit<T>
+  canSubmit?: CanSubmit<T>,
 ) {
   return (e: FormEvent) => {
     e.preventDefault();

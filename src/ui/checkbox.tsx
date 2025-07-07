@@ -1,5 +1,5 @@
-import {cn} from "@/libs/cn";
-import {cva, VariantProps} from "class-variance-authority";
+import { cn } from "@/libs/cn";
+import { cva, VariantProps } from "class-variance-authority";
 import React from "react";
 
 const checkboxVariants = cva(
@@ -13,7 +13,7 @@ const checkboxVariants = cva(
           'peer-checked:bg-[var(--yellow)] peer-checked:after:content-["✓"] peer-checked:after:text-[var(--brown)] peer-checked:after:text-sm peer-checked:after:font-bold peer-checked:after:leading-none border-[var(--brown)]',
       },
     },
-  }
+  },
 );
 
 type CheckboxProps = React.InputHTMLAttributes<HTMLInputElement> &
@@ -23,7 +23,7 @@ type CheckboxProps = React.InputHTMLAttributes<HTMLInputElement> &
   };
 
 const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
-  ({className, displayclassName, intent, displayName, ...props}, ref) => {
+  ({ className, displayclassName, intent, displayName, ...props }, ref) => {
     return (
       <label
         htmlFor={props.id}
@@ -38,7 +38,7 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
           className={cn("peer hidden", className)}
           {...props}
         />
-        <span className={cn(checkboxVariants({intent}))} />
+        <span className={cn(checkboxVariants({ intent }))} />
         {displayName && (
           <span className={`select-none ${displayclassName}`}>
             {displayName}
@@ -46,7 +46,7 @@ const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
         )}
       </label>
     );
-  }
+  },
 );
 
 Checkbox.displayName = "Checkbox";

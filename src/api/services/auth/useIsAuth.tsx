@@ -1,5 +1,5 @@
-import {isAuth} from "@/api/queries/auth/isAuth";
-import {useQuery} from "@tanstack/react-query";
+import { isAuth } from "@/api/queries/auth/isAuth";
+import { useQuery } from "@tanstack/react-query";
 
 export const useAuth = () => {
   return useQuery({

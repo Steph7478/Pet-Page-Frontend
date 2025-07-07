@@ -1,8 +1,8 @@
 "use client";
-import {useFadeIn} from "@/hooks/ui/useFadeIn";
+import { useFadeIn } from "@/hooks/ui/useFadeIn";
 import Typewriter from "@/hooks/ui/useTyping";
-import {motion} from "framer-motion";
-import {StaticImport} from "next/dist/shared/lib/get-img-props";
+import { motion } from "framer-motion";
+import { StaticImport } from "next/dist/shared/lib/get-img-props";
 import Image from "next/image";
 import React from "react";
 
@@ -23,7 +23,7 @@ const SobreNos = () => {
     text: string,
     f: number,
     s: number,
-    t: number
+    t: number,
   ) => (
     <section className=" flex gap-8 justify-center items-center flex-col">
       <div className="flex justify-center items-center w-full gap-6 max-w-[800px] max-[795px]:flex-col max-[795px]: text-center min-[795px]:text-start px-4">
@@ -81,7 +81,7 @@ const SobreNos = () => {
           "",
           0,
           1,
-          2
+          2,
         )}
 
         {sobre(
@@ -94,7 +94,7 @@ const SobreNos = () => {
           "Desenvolvedora Fullstack com foco em performance, acessibilidade e escalabilidade. Utilizo React, Next.js, Tailwind CSS e TypeScript como stack principal. Tenho experiência sólida no consumo de APIs REST, gerenciamento de estado e cache com React Query, e construção de componentes reutilizáveis com atenção a boas práticas de UI/UX. Priorizo código limpo, modular e de fácil manutenção, com atenção especial à estrutura, responsividade e experiência do usuário.",
           3,
           4,
-          5
+          5,
         )}
       </div>
     </div>

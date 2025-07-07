@@ -2,27 +2,27 @@
 
 import AuthSwitch from "@/api/services/auth/useAuthSwitch";
 import Link from "next/link";
-import React, {useEffect, useMemo, useState} from "react";
-import {MdLogout} from "react-icons/md";
-import {HiMenuAlt3} from "react-icons/hi";
-import {IoCloseSharp} from "react-icons/io5";
-import {useLogout} from "@/api/services/auth/useLogout";
-import {useAuth} from "@/api/services/auth/useIsAuth";
+import React, { useEffect, useMemo, useState } from "react";
+import { MdLogout } from "react-icons/md";
+import { HiMenuAlt3 } from "react-icons/hi";
+import { IoCloseSharp } from "react-icons/io5";
+import { useLogout } from "@/api/services/auth/useLogout";
+import { useAuth } from "@/api/services/auth/useIsAuth";
 import Image from "next/image";
 
 const Navbar = () => {
-  const {data: user} = useAuth();
-  const {mutate: logout} = useLogout();
+  const { data: user } = useAuth();
+  const { mutate: logout } = useLogout();
   const [isOpen, setIsOpen] = useState(false);
 
   const links = [
-    {name: "Home", href: "/"},
-    {name: "Sobre nós", href: "/sobre"},
+    { name: "Home", href: "/" },
+    { name: "Sobre nós", href: "/sobre" },
   ];
 
   const isLogout = [
-    {name: "Cadastre-se", href: "/signup"},
-    {name: "Entrar", href: "/login"},
+    { name: "Cadastre-se", href: "/signup" },
+    { name: "Entrar", href: "/login" },
   ];
 
   const isLogged = useMemo(() => {
@@ -32,7 +32,7 @@ const Navbar = () => {
         name: "Painel",
         href: user.role === "adotante" ? `/adotante` : `/anunciante`,
       },
-      {name: "Adotar", href: "/adotar"},
+      { name: "Adotar", href: "/adotar" },
     ];
   }, [user]);
 

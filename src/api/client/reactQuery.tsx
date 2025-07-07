@@ -1,19 +1,19 @@
 "use client";
 
-import {ReactNode, useState} from "react";
+import { ReactNode, useState } from "react";
 import {
   MutationCache,
   QueryCache,
   QueryClient,
   QueryClientProvider,
 } from "@tanstack/react-query";
-import {mutationErrorHandler, queryErrorHandler} from "@/utils/errorHandler";
+import { mutationErrorHandler, queryErrorHandler } from "@/utils/errorHandler";
 
 interface ReactQueryProviderProps {
   children: ReactNode;
 }
 
-export function ReactQueryProvider({children}: ReactQueryProviderProps) {
+export function ReactQueryProvider({ children }: ReactQueryProviderProps) {
   const [queryClient] = useState(
     () =>
       new QueryClient({
@@ -32,7 +32,7 @@ export function ReactQueryProvider({children}: ReactQueryProviderProps) {
         queryCache: new QueryCache({
           onError: queryErrorHandler,
         }),
-      })
+      }),
   );
 
   return (

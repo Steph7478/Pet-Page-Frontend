@@ -1,6 +1,6 @@
 "use client";
 
-import {useParams} from "next/navigation";
+import { useParams } from "next/navigation";
 
 export const useRouteParam = (paramName: string): string => {
   const params = useParams();

@@ -1,6 +1,6 @@
 "use client";
-import {useFadeIn} from "@/hooks/ui/useFadeIn";
-import {motion} from "framer-motion";
+import { useFadeIn } from "@/hooks/ui/useFadeIn";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";

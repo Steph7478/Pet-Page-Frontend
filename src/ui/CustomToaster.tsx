@@ -1,8 +1,8 @@
 "use client";
 
-import {toast as sonnerToast, Toaster} from "sonner";
-import {cva, type VariantProps} from "class-variance-authority";
-import React, {useEffect, useState} from "react";
+import { toast as sonnerToast, Toaster } from "sonner";
+import { cva, type VariantProps } from "class-variance-authority";
+import React, { useEffect, useState } from "react";
 
 const toastVariants = cva(
   "rounded-xl border px-6 py-4 shadow-lg text-sm font-medium relative overflow-hidden",
@@ -16,8 +16,8 @@ const toastVariants = cva(
         info: "bg-blue-900 text-blue-200 border-blue-600",
       },
     },
-    defaultVariants: {variant: "default"},
-  }
+    defaultVariants: { variant: "default" },
+  },
 );
 
 type ToastVariant = VariantProps<typeof toastVariants>["variant"];
@@ -47,7 +47,7 @@ export const CustomToaster = () => (
 function makeToastFunction(variant: ToastVariant) {
   return (message: React.ReactNode) => {
     sonnerToast.custom(() => (
-      <div className={toastVariants({variant})}>
+      <div className={toastVariants({ variant })}>
         {message}
         <ProgressBar />
       </div>

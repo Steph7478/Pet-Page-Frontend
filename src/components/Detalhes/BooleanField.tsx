@@ -1,6 +1,6 @@
 import React from "react";
 import Checkbox from "@/ui/checkbox";
-import {BooleanFieldProps} from "@/types/fields";
+import { BooleanFieldProps } from "@/types/fields";
 
 const BooleanField: React.FC<BooleanFieldProps> = ({
   label,

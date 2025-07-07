@@ -1,5 +1,5 @@
-import {api} from "../../client/axios";
-import {API_PATHS} from "@/constants/paths";
+import { api } from "../../client/axios";
+import { API_PATHS } from "@/constants/paths";
 
 export const getPets = async () => {
   const res = await api.get(API_PATHS.pets);
@@ -13,7 +13,7 @@ export const getPetById = async (id: string) => {
 
 export const getPetsByAdvertiserId = async (owner: string) => {
   const res = await api.get(API_PATHS.pets, {
-    params: {owner},
+    params: { owner },
   });
   return res.data;
 };

@@ -1,15 +1,15 @@
 "use client";
-import {useAuth} from "@/api/services/auth/useIsAuth";
-import {useOAuth} from "@/api/services/auth/useOAuth";
+import { useAuth } from "@/api/services/auth/useIsAuth";
+import { useOAuth } from "@/api/services/auth/useOAuth";
 import LoginRoute from "@/common/routes/LoginRoute";
 import Button from "@/ui/button";
-import {toast} from "@/ui/CustomToaster";
-import {fadeIn} from "@/ui/motionVariants";
-import {motion} from "framer-motion";
+import { toast } from "@/ui/CustomToaster";
+import { fadeIn } from "@/ui/motionVariants";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import {useEffect} from "react";
-import {FcGoogle} from "react-icons/fc";
+import { useEffect } from "react";
+import { FcGoogle } from "react-icons/fc";
 
 export default function AuthLayout({
   children,
@@ -24,7 +24,7 @@ export default function AuthLayout({
   isLoading?: boolean;
   isError?: boolean | null;
 }) {
-  const {handleOAuth, isLoading: loadingGoogle} = useOAuth();
+  const { handleOAuth, isLoading: loadingGoogle } = useOAuth();
 
   useEffect(() => {
     if (isError) {
@@ -83,8 +83,8 @@ export default function AuthLayout({
                         ? "Entrando..."
                         : "Cadastrando..."
                       : type === "login"
-                      ? "Entrar"
-                      : "Cadastrar"}
+                        ? "Entrar"
+                        : "Cadastrar"}
                   </Button>
                 </fieldset>
               </form>
@@ -103,8 +103,8 @@ export default function AuthLayout({
                     ? "Entrando..."
                     : "Cadastrando..."
                   : type === "login"
-                  ? "Entrar com Google"
-                  : "Cadastre-se com Google"}
+                    ? "Entrar com Google"
+                    : "Cadastre-se com Google"}
               </Button>
 
               <p className="text-center text-sm ">

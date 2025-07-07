@@ -1,6 +1,6 @@
-import {useInView} from "react-intersection-observer";
+import { useInView } from "react-intersection-observer";
 
-export const useScaleIn = (options = {triggerOnce: true, threshold: 0.3}) => {
+export const useScaleIn = (options = { triggerOnce: true, threshold: 0.3 }) => {
   const [ref, inView] = useInView(options);
 
   const blurScaleInVariants = {
@@ -26,5 +26,5 @@ export const useScaleIn = (options = {triggerOnce: true, threshold: 0.3}) => {
     variants: blurScaleInVariants,
   };
 
-  return {ref, animationProps};
+  return { ref, animationProps };
 };

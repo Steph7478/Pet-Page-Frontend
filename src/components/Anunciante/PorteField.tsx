@@ -1,4 +1,4 @@
-import {PorteFieldProps} from "@/types/fields";
+import { PorteFieldProps } from "@/types/fields";
 import Checkbox from "@/ui/checkbox";
 
 export function PorteField<T, K extends keyof T>({

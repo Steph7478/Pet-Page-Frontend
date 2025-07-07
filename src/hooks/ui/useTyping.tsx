@@ -1,6 +1,6 @@
 "use client";
-import React, {useState, useEffect, JSX} from "react";
-import {motion} from "framer-motion";
+import React, { useState, useEffect, JSX } from "react";
+import { motion } from "framer-motion";
 import parse from "html-react-parser";
 
 type TypewriterProps = {
@@ -36,7 +36,7 @@ export default function Typewriter({
     if (!isDeleting && charIndex === rawText.length) {
       const timeout = setTimeout(
         () => setIsDeleting(true),
-        delayBetweenPhrases
+        delayBetweenPhrases,
       );
       return () => clearTimeout(timeout);
     }
@@ -51,7 +51,7 @@ export default function Typewriter({
       () => {
         setCharIndex((prev) => (isDeleting ? prev - 1 : prev + 1));
       },
-      isDeleting ? deletingSpeed : typingSpeed
+      isDeleting ? deletingSpeed : typingSpeed,
     );
 
     return () => clearTimeout(timeout);
@@ -102,9 +102,9 @@ export default function Typewriter({
       <span>
         {parse(partialHTML)}{" "}
         <motion.span
-          style={{marginLeft: 2}}
-          animate={{opacity: [1, 0, 1]}}
-          transition={{duration: 1, repeat: Infinity, ease: "easeInOut"}}
+          style={{ marginLeft: 2 }}
+          animate={{ opacity: [1, 0, 1] }}
+          transition={{ duration: 1, repeat: Infinity, ease: "easeInOut" }}
           aria-hidden="true"
         >
           |

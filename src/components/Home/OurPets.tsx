@@ -1,15 +1,15 @@
 "use client";
-import {usePetInfo} from "@/api/services/pet/usePetInfo";
-import {useFadeIn} from "@/hooks/ui/useFadeIn";
+import { usePetInfo } from "@/api/services/pet/usePetInfo";
+import { useFadeIn } from "@/hooks/ui/useFadeIn";
 import Button from "@/ui/button";
-import {isValidUrl} from "@/utils/isValidUrl";
-import {motion} from "framer-motion";
+import { isValidUrl } from "@/utils/isValidUrl";
+import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
 const OurPets = () => {
-  const {data: pets, isLoading, isError} = usePetInfo();
+  const { data: pets, isLoading, isError } = usePetInfo();
   const fadeIn = [useFadeIn(), useFadeIn(), useFadeIn(), useFadeIn()];
 
   const petIntents: ("fourth" | "secondVar" | "third")[] = [

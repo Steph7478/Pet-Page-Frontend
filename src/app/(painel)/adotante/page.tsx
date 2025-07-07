@@ -1,12 +1,12 @@
 "use client";
 
 import React from "react";
-import {useAuth} from "@/api/services/auth/useIsAuth";
+import { useAuth } from "@/api/services/auth/useIsAuth";
 import AdoptionPanel from "../painelLayout";
 import LoadingSpinner from "@/common/layouts/Loading";
 
 const Adotante = () => {
-  const {data: user} = useAuth();
+  const { data: user } = useAuth();
 
   if (!user) {
     return <LoadingSpinner />;

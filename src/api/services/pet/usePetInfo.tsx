@@ -1,5 +1,5 @@
-import {getPetById, getPets} from "@/api/queries/pets/pets";
-import {useQuery} from "@tanstack/react-query";
+import { getPetById, getPets } from "@/api/queries/pets/pets";
+import { useQuery } from "@tanstack/react-query";
 
 export const usePetInfo = () => {
   return useQuery({
